@@ -1,0 +1,17 @@
+Create app:
+npm create vite@latest my-portfolio -- --template react
+
+Intialize react:
+npm install
+npm run dev
+----
+
+To initialize project:
+
+First:
+npm init -y
+npm install three
+npm install --save-dev vite
+
+Start program:
+npx vite

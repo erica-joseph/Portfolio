@@ -3,7 +3,6 @@ import React from 'react';
 
 
 import {About, Resume, Interests, Contacts, Projects} from "./Windows";
-import DraggableWindow from './DraggableWindow';
 
 export default function Window({ id, type, onClose }) {
     

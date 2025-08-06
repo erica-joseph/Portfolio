@@ -165,14 +165,89 @@ export function Resume() {
 }
 
 export function Interests() {
+
+  const cardinal = 0;
+
+  const images = [
+    {img: "img.png", name: "Dandi"},
+    {img: "img.png", name: "Inari"},
+    {img: "img.png", name: "Pals"},
+    {img: "img.png", name: "Juicebox"},
+    {img: "img.png", name: "Candy"}
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  const [openGallery, setGallery] = useState([]);
+
+  const openLeft = () => {
+    if(index > 0){
+    setIndex((prevIndex) => (prevIndex - 1) % images.length);
+    }
+  };
+
+  const openRight = () => {
+    
+    setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    
+  };
   return(
-    <h1> Interest </h1>
+    <>
+    <div className="gallery_container">
+    
+      <div className="gallery">
+     
+        <div className="gallery_image">
+        <img src={images[index].img}/>
+        </div>
+        <div className="gallery_controls">
+          <div className="gallery_left" onClick={openLeft}>
+          ◄
+          </div>
+          <div className="gallery_title">
+            {images[index].name}
+          </div>
+          <div className="gallery_right" onClick={openRight}>
+          ►
+          </div>
+          
+        </div>
+      
+      </div>
+ 
+    </div>
+    </>
   )
 }
 
 export function Projects() {
+  
+  const files = [
+    {img: "img.png", name: "Hermes"},
+    {img: "img.png", name: "Portfolio"},
+    {img: "img.png", name: "Quine-McCluskey"},
+    {img: "img.png", name: "Obento"},
+    {img: "img.png", name: "Tuesday"}
+  ];
+
   return(
-    <h1> Projects </h1>
+    <>
+    <div className="file_container">
+      <div className="files">
+      {files.map((file, index) => (
+      <div className="file">
+        <div className="file_icon">
+          <img src={file.img}/>
+        </div>
+
+        <div className="file_name">
+          {file.name}
+        </div>
+      </div>
+      ))}
+      </div>
+    </div>
+    </>
   )
 }
 

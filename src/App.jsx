@@ -20,6 +20,7 @@ function App() {
     {img: "img.png", name: "Contacts"}
   ];
 
+
   {/*Windows*/}
 {/*  const openWindows = ["About", "Resume", "Projects", "Interests", "Contacts"];*/}
 

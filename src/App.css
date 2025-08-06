@@ -198,7 +198,92 @@ html, body {
   font-size: 1vw;
 }
 
+.file_container{
+  display: flex;
+}
 
+.files{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  
+}
+
+.file{
+  background-color: coral;
+  height: fit-content;
+  width: 11.5vw;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1vw;
+  align-items: center;
+}
+
+.file_icon{
+  background-color: cornflowerblue;
+  width: 10vw;
+  height: 10vw;
+  margin: auto;
+}
+
+.file_name{
+  background-color: crimson;
+  width: 5vw;
+  font-size: 1vw;
+}
+
+/*Interests*/
+
+/*Gallery*/
+
+.gallery_container{
+  background-color: darkkhaki;
+  display: flex;
+}
+
+.gallery{
+  margin: auto;
+  background-color: darkcyan;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery_image{
+  background-color: darkorange;
+  margin: auto;
+  width: 25vw;
+  height: 25vw;
+  padding: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery_controls{
+  background-color: deeppink;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.gallery_left{
+  background-color: dodgerblue;
+  padding: 1vw;
+  box-sizing: border-box;
+}
+
+.gallery_title{
+  background-color: gold;
+  padding: 1vw;
+  box-sizing: border-box;
+}
+
+.gallery_right{
+  background-color: lemonchiffon;
+  padding: 1vw;
+  box-sizing: border-box;
+}
 
 /*Troubleshooting*/
 .buttons{

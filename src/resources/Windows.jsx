@@ -252,7 +252,28 @@ export function Projects() {
 }
 
 export function Contacts() {
+
+  const contacts = [
+    {img: "img.png", name: "LinkedIn", details: "Social media networking website on the internet"},
+    {img: "img.png", name: "GitHub", details: "Project history"},
+    {img: "img.png", name: "e-mail", details: "Direct contact"}
+  ]
+
   return(
-    <h1> Contacts </h1>
+    <>
+    {contacts.map((contacts, index) => (
+    <div className="contact_line">
+      <div className="contact_icon">
+        <img src={contacts.img}/>
+      </div>
+      <div className="contact_name">
+        {contacts.name}
+      </div>
+      <div className="contact_details">
+        {contacts.details}
+      </div>
+    </div>
+    ))}
+    </>
   )
 }

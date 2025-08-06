@@ -36,15 +36,19 @@ function App() {
   };
 
   const [openWindows, setOpenWindows] = useState([]);
+
+  const [openTabs, setOpenTabs] = useState([]);
   
   
 
   const openNewWindow = (type) => {
     setOpenWindows([...openWindows, { id: idCounter++, type }]);
+    setOpenTabs([...openTabs, { id: idCounter++, type }]);
   };
 
   const closeWindow = (idToRemove) => {
     setOpenWindows(openWindows.filter(win => win.id !== idToRemove));
+    setOpenTabs(openWindows.filter(tab => tab.id !== idToRemove));
   };
 
   const openWindow = (type) => {
@@ -104,7 +108,21 @@ function App() {
 
         {/* the toolbar */}
         <div className="toolbar">
-          <h1>TOOLBAR</h1>
+          <div className="toolbar_base">
+            <div className="toolbar_logo">
+              logo
+            </div>
+            <div className="toolbar_tabs">
+              {openTabs.map(({ id, type }) => (
+              <div className="toolbar_tab">
+              {type}
+              </div>
+              ))}
+            </div>
+            <div className="toolbar_time">
+              time
+            </div>
+          </div>
         </div>
       </div>
     </div>

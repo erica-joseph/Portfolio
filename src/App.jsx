@@ -1,28 +1,34 @@
 import React, { useState, useEffect, useRef } from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './Style/App.css'
 
-import {About, Resume, Interests, Contacts, Projects} from "./resources/Windows";
+
+
+import {About, Resume, Interests, Skills, Projects} from "./resources/Windows";
 import Window from './resources/Window'; 
 
 const GRID_VW = 20; // each grid cell is 5vw wide
 const GRID_VH = 20; // each grid cell is 5vh tall
 let idCounter = 0; 
 
+const timestamp = new Date();
+
 function App() {
+
+
+
   {/* map of desktop icons*/}
   const icons = [
     {img: "img.png", name: "About"},
     {img: "img.png", name: "Resume"},
     {img: "img.png", name: "Projects"},
     {img: "img.png", name: "Interests"},
-    {img: "img.png", name: "Contacts"}
+    {img: "img.png", name: "Skills"}
   ];
 
-
   {/*Windows*/}
-{/*  const openWindows = ["About", "Resume", "Projects", "Interests", "Contacts"];*/}
+{/*  const openWindows = ["About", "Resume", "Projects", "Interests", "Skills"];*/}
 
  {/* const openWindows = ["About", "Resume"];*/}
 
@@ -31,7 +37,7 @@ function App() {
     About: <About />,
     Projects: <Projects />,
     Interests: <Interests />,
-    Contacts: <Contacts />,
+    Skills: <Skills />,
     Resume: <Resume />
   };
 
@@ -65,6 +71,21 @@ function App() {
     console.log("Button clicked!");
   };
   
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const displayMenu = () =>{
+
+  }
+
+  const [isVisible, setIsVisible] = useState(false);
 
   return (
     <div className="page">
@@ -106,10 +127,25 @@ function App() {
           <h1>POPUP TWO</h1>
         </div>
 
+
         {/* the toolbar */}
+
         <div className="toolbar">
+        
+        
+          {isVisible && (
+          <div className="menu">
+          <div className="menu_title">Contact Me!</div>
+          <a href="https://www.linkedin.com/in/erica-joseph-93b3501b1/" target = "_blank"><div className="menu_button">LinkedIn</div></a>
+          <a href="https://github.com/erica-joseph" target = "_blank"><div className="menu_button">Github</div></a>
+          <a href="mailto:ericagjoseph@outlook.com" target = "_blank"><div className="menu_button">e-mail</div></a>
+           </div>
+          )}
+       
+
           <div className="toolbar_base">
-            <div className="toolbar_logo">
+            <div className="toolbar_logo" onClick={() => setIsVisible(prev => !prev)}>
+              
               logo
             </div>
             <div className="toolbar_tabs">
@@ -120,7 +156,7 @@ function App() {
               ))}
             </div>
             <div className="toolbar_time">
-              time
+            {time.toLocaleTimeString()} 
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@
 import React from 'react';
 
 
-import {About, Resume, Interests, Contacts, Projects} from "./Windows";
+import {About, Resume, Interests, Skills, Projects} from "./Windows";
 
 export default function Window({ id, type, onClose }) {
     
@@ -10,7 +10,7 @@ export default function Window({ id, type, onClose }) {
     About: <About />,
     Projects: <Projects />,
     Interests: <Interests />,
-    Contacts: <Contacts />,
+    Skills: <Skills />,
     Resume: <Resume />
   }[type];
 
@@ -18,7 +18,7 @@ export default function Window({ id, type, onClose }) {
     About: <About />,
     Projects: <Projects />,
     Interests: <Interests />,
-    Contacts: <Contacts />,
+    Skills: <Skills />,
     Resume: <Resume />
   };
   

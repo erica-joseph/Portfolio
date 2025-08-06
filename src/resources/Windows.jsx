@@ -223,11 +223,11 @@ export function Interests() {
 export function Projects() {
   
   const files = [
-    {img: "img.png", name: "Hermes"},
-    {img: "img.png", name: "Portfolio"},
-    {img: "img.png", name: "Quine-McCluskey"},
-    {img: "img.png", name: "Obento"},
-    {img: "img.png", name: "Tuesday"}
+    {img: "img.png", name: "Hermes", link: "https://drive.google.com/file/d/1QGFWM-8CS6bdBOJYdDsZfPe2NkEjnTkK/view?usp=sharing"},
+    {img: "img.png", name: "Portfolio", link: "https://github.com/erica-joseph/erica-joseph"},
+    {img: "img.png", name: "Quine-McCluskey", link: "https://github.com/erica-joseph/Quine-McCluskey"},
+    {img: "img.png", name: "Obento", link: "https://github.com/erica-joseph/Obento"},
+    {img: "img.png", name: "Tuesday", link: "https://github.com/erica-joseph/Tuesday"}
   ];
 
   return(
@@ -236,10 +236,11 @@ export function Projects() {
       <div className="files">
       {files.map((file, index) => (
       <div className="file">
+        <a href={file.link} target="_blank">
         <div className="file_icon">
           <img src={file.img}/>
         </div>
-
+        </a>
         <div className="file_name">
           {file.name}
         </div>
@@ -251,26 +252,34 @@ export function Projects() {
   )
 }
 
-export function Contacts() {
+export function Skills() {
 
-  const contacts = [
-    {img: "img.png", name: "LinkedIn", details: "Social media networking website on the internet"},
-    {img: "img.png", name: "GitHub", details: "Project history"},
-    {img: "img.png", name: "e-mail", details: "Direct contact"}
+  const skills = [
+    {img: "img.png", name: "C", details: "Intermediate"},
+    {img: "img.png", name: "C++", details: "Intermediate"},
+    {img: "img.png", name: "Java", details: "Intermediate"},
+    {img: "img.png", name: "Python", details: "Intermediate"},
+    {img: "img.png", name: "MIPS", details: "Intermediate"},
+    {img: "img.png", name: "Verilog", details: "Intermediate"},
+    {img: "img.png", name: "HTML", details: "Intermediate"},
+    {img: "img.png", name: "CSS", details: "Intermediate"},
+    {img: "img.png", name: "React", details: "Intermediate"},
+    {img: "img.png", name: "Agile", details: "Intermediate"},
+    {img: "img.png", name: "Scrum", details: "Intermediate"}
   ]
 
   return(
     <>
-    {contacts.map((contacts, index) => (
-    <div className="contact_line">
-      <div className="contact_icon">
-        <img src={contacts.img}/>
+    {skills.map((skills, index) => (
+    <div className="skill_line">
+      <div className="skill_icon">
+        <img src={skills.img}/>
       </div>
-      <div className="contact_name">
-        {contacts.name}
+      <div className="skill_name">
+        {skills.name}
       </div>
-      <div className="contact_details">
-        {contacts.details}
+      <div className="skill_details">
+        {skills.details}
       </div>
     </div>
     ))}

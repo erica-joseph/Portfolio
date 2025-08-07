@@ -42,9 +42,9 @@ export function Resume() {
     <div className="resume">
     
     <TypewriterTitle text="Erica Joseph" speed={80} />	         							      
-    <left>Orlando, Florida </left>
+    <p stle = {{textAlign: 'right'}}>Orlando, Florida </p>
     | 
-    <right><a href = "https://www.linkedin.com/in/erica-joseph-93b3501b1" target = "_blank" style = {{color: "black"}}> LinkedIn </a></right>
+    <a href = "https://www.linkedin.com/in/erica-joseph-93b3501b1" target = "_blank" style = {{color: "black", textAlign: 'right' }}> LinkedIn </a>
     |
     <a href="https://github.com/erica-joseph" target = "_blank" style = {{color: "black"}}> Github </a>
     |

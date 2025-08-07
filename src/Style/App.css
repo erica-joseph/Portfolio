@@ -390,12 +390,17 @@ html, body {
 .toolbar_logo{
   user-select: none; 
   border-right: white solid .01vw;
-  width: 10%;
+  width: fit-content;
   justify-content: center;
   align-items: center;
   display: flex;  
   color: white;
   text-shadow: .5vw .5vw 1vw black;
+  box-sizing: border-box;
+  padding-top:.3vw;
+  padding-bottom:.3vw;
+  padding-left:.3vw;
+  padding-right:.5vw;
 }
 
 .toolbar_tabs{
@@ -412,7 +417,7 @@ html, body {
   align-items: center;
   display: flex;
   color: white;
-  text-shadow: .5vw .5vw 1vw black;
+  text-shadow: .1vw .1vw .1vw black;
   border-radius: .5vw;
 }
 
@@ -423,7 +428,7 @@ html, body {
   border-left: white solid .01vw;
   width: 10%;
   color: white;
-  text-shadow: .5vw .5vw 1vw black;
+  text-shadow: .1vw .1vw .1vw black;
 }
 
 .menu{
@@ -492,6 +497,12 @@ a:active {
 
 .skills_icon_png{
   width: 2vw;
+}
+
+.logo_image{
+  width: 2vw;
+  height: 2vw;
+  filter:drop-shadow(.1vw .1vw .1vw black)
 }
 
 /*Troubleshooting*/

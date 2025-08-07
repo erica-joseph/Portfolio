@@ -1,6 +1,8 @@
 // Window.jsx
 import React from 'react';
 
+import window_inner from './assets/Inner_Window.png';
+import window_outer from './assets/Outer_Window.png';
 
 import {About, Resume, Interests, Skills, Projects} from "./Windows";
 
@@ -24,13 +26,15 @@ export default function Window({ id, type, onClose }) {
   
 
   return (
-        <div className="outer_window">
+        <div className="outer_window" style={{backgroundImage: `url(${window_outer})`}}>
           <div className="control_bar">
             <div className="name_window">
               {type}
             </div>
             <div className="exit_window">
-              <button className="exit" onClick={onClose}>X </button>
+              <div className="exit" onClick={onClose}>
+                X
+              </div>
             </div>
           </div>
           <div className="inner_window">

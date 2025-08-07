@@ -89,40 +89,47 @@ html, body {
 /* Desktop Icons (Layer 1) */
 
 .desktop_icon{
-  background-color: aquamarine;
   width: 10vw;
   height: 12vw;
-    padding: 10px;
+  padding: 10px;
+  text-shadow: .2vw .2vw .2vw #000000;
 }
 
 .icon{
   caret-color: transparent;
-  background-color: azure;
   width: 10vw;
   height: 10vw;
+  display: flex;
+  justify-content: center;
+
 }
 
 .name{
-  background-color: beige;
   width: 10vw;
   height: 2vw;
   text-align: center;
   font-size: 1vw;
+  color: white;
 }
 
 /* popup windows (Layer 2) */
 .outer_window{
   position: absolute;
   margin: auto;
-  background-color: bisque;
   width: 40vw;
   height: 40vw;
-  padding: 1vw;
+  padding-top: 1vw;
+  padding-left: 2vw;
+  padding-bottom: 2vw;
+  padding-right: 2.5vw;
+  
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .control_bar{
   display: flex;
-  background-color: black;
   color: white;
   width: 40vw;
   height: 10%;
@@ -140,14 +147,13 @@ html, body {
   width: 90%;
   height: 100%;
   padding: .5vh;
-  background-color: chartreuse;
+  text-shadow: .2vw .2vw .2vw #000000;
+  align-items: center;
 }
 
 .exit_window{
   margin: auto;
-  
   width: 10%;
-  background-color: coral;
   text-align: center;
 }
 
@@ -156,43 +162,52 @@ html, body {
   background-color: rgb(24, 90, 67);
   width: 40vw;
   height: 90%;  
+  border-radius: 2vw;
+  border: solid black 0px;
 }
 
 .content{
   margin: auto;
-  background-color: blue;
+  background-color: rgb(255, 255, 255);
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   box-sizing: border-box;
   padding: 1vw;
+  border-radius: .6vw;
+  box-shadow: inset 0 0 .1vw .1vw rgba(0, 0, 0, 0.7);
 }
 
 /*Windows stack*/
 .exit{
-  background-color: chocolate;
   width: 100%;
   height: 100%;
   text-align: center;
   display: flex;
   justify-content: center;
+  border-left: solid rgba(255, 255, 255, 0.352) .1vw;
+}
+
+.exit:hover{
+  filter: drop-shadow(.1vw .1vw .5vw black);
+  color: red;
 }
 
 /*Window 1 - About*/
 .titleAbout{
-  color: pink;
+  color: black;
   font-size: 2vw;
   font-family: 'Courier New', Courier, monospace;
 }
 
 .bodyAbout{
-  color: rgb(58, 255, 180);
+  color: black;
   font-size: 1vw;
   font-family: 'Courier New', Courier, monospace;
 }
 
 .resume{
-  color: rgb(58, 255, 180);
+  color: black;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1vw;
 }
@@ -336,7 +351,9 @@ html, body {
 
 /* toolbar (Layer 2) */
 .toolbar_base{
-  background-color: palevioletred;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 7%;
   width: 100%;
   display: flex;
@@ -345,39 +362,79 @@ html, body {
 }
 
 .toolbar_logo{
-  background-color: thistle;
+border-right: white solid .01vw;
   width: 10%;
 }
 
 .toolbar_tabs{
-  background-color: #dcc1c1;
+
   width: 80%;
   display: flex;
   justify-content: flex-start;
 }
 .toolbar_tab{
-  background-color: #3d90da;
+  border-right: white solid .01vw;
+  box-shadow: inset 1 0 0 .1vw rgba(0, 0, 0, 0.7); 
   width: 10%;
 }
 
 .toolbar_time{
-  background-color: tomato;
+border-left: white solid .01vw;
   width: 10%;
 }
 
 .menu{
-  background-color: powderblue;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 1vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  box-sizing: border-box;
   width: 15%;
   height: fit-content;
   font-size: 1vw;
+  text-shadow: .2vw .2vw .2vw #000000;
 }
 
 .menu_title{
-  background-color: mintcream;
+  padding: 1vw;
+  box-sizing: border-box;
+  border-bottom: rgba(255, 255, 255, 0.464) solid .1vw;
+  color: white;
+  font-weight: bold;
 }
 
 .menu_button{
-  background-color: mistyrose;
+  box-sizing: border-box;
+  padding: .5vw;
+}
+
+.desktop_icon_svg{
+  width: 80%;
+  height: 90%;
+}
+
+/* unvisited link */
+a:link {
+  color: rgb(255, 255, 255);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+  color: rgb(255, 255, 255);
 }
 
 /*Troubleshooting*/

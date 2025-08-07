@@ -1,12 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import desktop_image from './assets/Desktop_Image.png';
+import desktop_folder from './assets/Desktop_Folder.png';
+import desktop_doc from './assets/Desktop_Doc.png';
+
+import menu_background from './assets/Menu.png';
+
+import toolbar_image from './assets/Toolbar.png';
+
+import window_inner from './assets/Inner_Window.png';
+import window_outer from './assets/Outer_Window.png';
+
 import './Style/App.css'
 
 
 
-import {About, Resume, Interests, Skills, Projects} from "./resources/Windows";
-import Window from './resources/Window'; 
+import {About, Resume, Interests, Skills, Projects} from "./Windows";
+import Window from './Window'; 
 
 const GRID_VW = 20; // each grid cell is 5vw wide
 const GRID_VH = 20; // each grid cell is 5vh tall
@@ -20,11 +31,11 @@ function App() {
 
   {/* map of desktop icons*/}
   const icons = [
-    {img: "img.png", name: "About"},
-    {img: "img.png", name: "Resume"},
-    {img: "img.png", name: "Projects"},
-    {img: "img.png", name: "Interests"},
-    {img: "img.png", name: "Skills"}
+    {img: desktop_doc, name: "About"},
+    {img: desktop_doc, name: "Resume"},
+    {img: desktop_folder, name: "Projects"},
+    {img: desktop_image, name: "Interests"},
+    {img: desktop_folder, name: "Skills"}
   ];
 
   {/*Windows*/}
@@ -101,7 +112,7 @@ function App() {
         {icons.map((icon, index) => (
             <div className="desktop_icon" key={index} onClick={() => openNewWindow(icon.name)}>
               <div className="icon">
-                <img src={icon.img}></img>
+                <img className="desktop_icon_svg" src={icon.img} />
               </div>
               <div className="name">
                 {icon.name}
@@ -134,7 +145,7 @@ function App() {
         
         
           {isVisible && (
-          <div className="menu">
+          <div className="menu" style={{backgroundImage: `url(${menu_background})`}}>
           <div className="menu_title">Contact Me!</div>
           <a href="https://www.linkedin.com/in/erica-joseph-93b3501b1/" target = "_blank"><div className="menu_button">LinkedIn</div></a>
           <a href="https://github.com/erica-joseph" target = "_blank"><div className="menu_button">Github</div></a>
@@ -143,7 +154,7 @@ function App() {
           )}
        
 
-          <div className="toolbar_base">
+          <div className="toolbar_base" style={{backgroundImage: `url(${toolbar_image})`}}>
             <div className="toolbar_logo" onClick={() => setIsVisible(prev => !prev)}>
               
               logo

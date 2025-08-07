@@ -5,6 +5,8 @@ import desktop_image from './assets/Desktop_Image.png';
 import desktop_folder from './assets/Desktop_Folder.png';
 import desktop_doc from './assets/Desktop_Doc.png';
 
+import projects_icon from './assets/Projects_File.png';
+
 import menu_background from './assets/Menu.png';
 
 import toolbar_image from './assets/Toolbar.png';
@@ -161,7 +163,7 @@ function App() {
             </div>
             <div className="toolbar_tabs">
               {openTabs.map(({ id, type }) => (
-              <div className="toolbar_tab">
+              <div className="toolbar_tab" key={id}>
               {type}
               </div>
               ))}

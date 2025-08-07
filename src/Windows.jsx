@@ -1,11 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+import projects_icon from './assets/Projects_File.png';
+
+import dandi_1 from './assets/Images/Dandi_01.gif';
+import dandi_2 from './assets/Images/Dandi_02.png';
+import dandi_3 from './assets/Images/Dandi_03.png';
+import inari_1 from './assets/Images/Inari_01.png';
+import inari_2 from './assets/Images/Inari_02.png';
+import inari_3 from './assets/Images/Inari_03.png';
+import pal_1 from './assets/Images/Pal_01.png';
+import pal_2 from './assets/Images/Pal_02.png';
+import pal_3 from './assets/Images/Pal_03.png';
+import pal_4 from './assets/Images/Pal_04.png';
+import pal_5 from './assets/Images/Pal_05.png';
+
+import TypewriterTitle from './Typewriter';
 
 export function About() {
   return(
     <>
     <div className="titleAbout"> 
-    About Me 
+    <TypewriterTitle text="About Me" speed={80} />
     </div>
     <div className="bodyAbout"> 
 <p>My name is Erica Joseph, and I'm a Computer Engineering graduate from the University of Central Florida (May 2025,  BS.)</p>
@@ -26,7 +41,7 @@ export function Resume() {
     <>
     <div className="resume">
     
-    <h1>Erica Joseph</h1>		         							      
+    <TypewriterTitle text="Erica Joseph" speed={80} />	         							      
     <left>Orlando, Florida </left>
     | 
     <right><a href = "https://www.linkedin.com/in/erica-joseph-93b3501b1" target = "_blank" style = {{color: "black"}}> LinkedIn </a></right>
@@ -167,11 +182,17 @@ export function Interests() {
   const cardinal = 0;
 
   const images = [
-    {img: "img.png", name: "Dandi"},
-    {img: "img.png", name: "Inari"},
-    {img: "img.png", name: "Pals"},
-    {img: "img.png", name: "Juicebox"},
-    {img: "img.png", name: "Candy"}
+    {img: dandi_1, name: "Dandi - First Photoshoot_Animated"},
+    {img: dandi_2, name: "Dandi - First Photoshoot_01"},
+    {img: dandi_3, name: "Dandi - First Photoshoot_02"},
+    {img: inari_1, name: "Inari - City_01"},
+    {img: inari_2, name: "Inari - City_02"},
+    {img: inari_3, name: "Inari - Sunny_01"},
+    {img: pal_1, name: "Soft Pals"},
+    {img: pal_2, name: "Soft Pals"},
+    {img: pal_3, name: "Soft Pals"},
+    {img: pal_4, name: "Soft Pals"},
+    {img: pal_5, name: "Soft Pals"}
   ];
 
   const [index, setIndex] = useState(0);
@@ -196,14 +217,14 @@ export function Interests() {
       <div className="gallery">
      
         <div className="gallery_image">
-        <img src={images[index].img}/>
+        <img className = "gallery_png" src={images[index].img}/>
         </div>
         <div className="gallery_controls">
           <div className="gallery_left" onClick={openLeft}>
           ◄
           </div>
           <div className="gallery_title">
-            {images[index].name}
+            {images[index].name}.png
           </div>
           <div className="gallery_right" onClick={openRight}>
           ►
@@ -221,11 +242,11 @@ export function Interests() {
 export function Projects() {
   
   const files = [
-    {img: "img.png", name: "Hermes", link: "https://drive.google.com/file/d/1QGFWM-8CS6bdBOJYdDsZfPe2NkEjnTkK/view?usp=sharing"},
-    {img: "img.png", name: "Portfolio", link: "https://github.com/erica-joseph/erica-joseph"},
-    {img: "img.png", name: "Quine-McCluskey", link: "https://github.com/erica-joseph/Quine-McCluskey"},
-    {img: "img.png", name: "Obento", link: "https://github.com/erica-joseph/Obento"},
-    {img: "img.png", name: "Tuesday", link: "https://github.com/erica-joseph/Tuesday"}
+    {name: "Hermes", link: "https://drive.google.com/file/d/1QGFWM-8CS6bdBOJYdDsZfPe2NkEjnTkK/view?usp=sharing"},
+    {name: "Portfolio", link: "https://github.com/erica-joseph/erica-joseph"},
+    {name: "Quine-McCluskey", link: "https://github.com/erica-joseph/Quine-McCluskey"},
+    {name: "Obento", link: "https://github.com/erica-joseph/Obento"},
+    {name: "Tuesday", link: "https://github.com/erica-joseph/Tuesday"}
   ];
 
   return(
@@ -233,10 +254,10 @@ export function Projects() {
     <div className="file_container">
       <div className="files">
       {files.map((file, index) => (
-      <div className="file">
+      <div className="file" key={file.name}>
         <a href={file.link} target="_blank">
         <div className="file_icon">
-          <img src={file.img}/>
+          <img className="file_icon_png" src={projects_icon}/>
         </div>
         </a>
         <div className="file_name">
@@ -268,10 +289,11 @@ export function Skills() {
 
   return(
     <>
+    <div className="skills_container">
     {skills.map((skills, index) => (
-    <div className="skill_line">
+    <div className="skill_line" key={index}>
       <div className="skill_icon">
-        <img src={skills.img}/>
+        <img className="skills_icon_png" src={projects_icon}/>
       </div>
       <div className="skill_name">
         {skills.name}
@@ -281,6 +303,7 @@ export function Skills() {
       </div>
     </div>
     ))}
+    </div>
     </>
   )
 }

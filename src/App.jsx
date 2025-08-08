@@ -14,6 +14,8 @@ import toolbar_image from './assets/Toolbar.png';
 import window_inner from './assets/Inner_Window.png';
 import window_outer from './assets/Outer_Window.png';
 
+import ThreeScene from './Model'; 
+
 import './Style/App.css'
 
 
@@ -102,12 +104,17 @@ function App() {
 
   return (
     <div className="page">
+    <div className="three">
+      {/* Your existing UI */}
+      {/* Add your Three.js scene, e.g. */}
+
+    </div>
       <div className="ui-container">
+      <div className="threejs-container">
+        <ThreeScene />
+      </div>
         {/* stacked screens */}
-        {/* background */}
-        <div className="background">
-          <h1>BACKGROUND</h1>
-        </div>
+ 
         
         {/* desktop icons */}
         <div className="icons">
@@ -135,10 +142,7 @@ function App() {
 
         </div>
 
-        {/* second layer of popups */}
-        <div className="popupTwo">
-          <h1>POPUP TWO</h1>
-        </div>
+
 
 
         {/* the toolbar */}

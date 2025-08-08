@@ -10,7 +10,6 @@ html, body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: #c39999;
   overflow: hidden;
 }
 
@@ -24,7 +23,6 @@ html, body {
   min-height: 300px;
   width: 100%;
   height: auto;
-  background: white;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
   display: flex;
   justify-content: center;
@@ -40,6 +38,7 @@ html, body {
   background-color: #dcc1c1;
   width: 100vw;
   height: 100%;
+ 
 }
 
 .icons{
@@ -48,7 +47,6 @@ html, body {
   flex-direction: column;
   align-content: flex-start;
   flex-wrap: wrap;
-  background-color: #444;
   width: 100vw;
   height: 100%;
 }
@@ -503,6 +501,18 @@ a:active {
   width: 2vw;
   height: 2vw;
   filter:drop-shadow(.1vw .1vw .1vw black)
+}
+
+.three{
+  position: absolute;
+}
+
+.threejs-container{
+  width: 100%;
+}
+
+.threeMain{
+  pointer-events: auto;
 }
 
 /*Troubleshooting*/

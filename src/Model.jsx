@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { SkeletonHelper } from 'three';
 
-import modelPath from 'F:/Projects/my-portfolio/src/Me_011.glb'
+import modelPath from './assets/My_Model/Me_011.glb'
 
 
 export default function ThreeScene() {
@@ -91,15 +91,15 @@ export default function ThreeScene() {
             console.log('Wall_Decor FOUND:', node);
           }
 
-          if (node.isBone && node.name === 'Dummy') {
+          if (node.isBone && node.name === 'Head') {
             head = node;
             console.log('Head FOUND:', node);
           }
         });
 
-        // SkeletonHelper (optional debugging)
-        // const skeletonHelper = new SkeletonHelper(model);
-        // scene.add(skeletonHelper);
+         //SkeletonHelper (optional debugging)
+         //const skeletonHelper = new SkeletonHelper(model);
+         //scene.add(skeletonHelper);
 
         mixer = new THREE.AnimationMixer(model);
         const desiredClip = gltf.animations[0];
@@ -132,6 +132,16 @@ export default function ThreeScene() {
           break;
       }
     }
+
+    containerRef.current.appendChild(renderer.domElement);
+    console.log("Container: ", containerRef.current);
+    console.log("Canvas: ", renderer.domElement);
+    console.log("Canvas rect: ", renderer.domElement.getBoundingClientRect());
+
+
+    renderer.domElement.setAttribute('tabindex', '0');
+    renderer.domElement.focus();
+
     window.addEventListener('keydown', onKeyDown);
 
     // Handle mouse movement

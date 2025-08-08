@@ -104,15 +104,10 @@ function App() {
 
   return (
     <div className="page">
-    <div className="three">
-      {/* Your existing UI */}
-      {/* Add your Three.js scene, e.g. */}
-
-    </div>
       <div className="ui-container">
-      <div className="threejs-container">
+
         <ThreeScene />
-      </div>
+
         {/* stacked screens */}
  
         

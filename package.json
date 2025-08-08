@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-"homepage": "https://github.com/erica-joseph/Portfolio",
+"homepage": "https://erica-joseph.github.io/Portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

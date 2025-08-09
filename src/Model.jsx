@@ -154,7 +154,7 @@ export default function ThreeScene() {
       raycaster.setFromCamera(mousePosition, camera);
       raycaster.ray.intersectPlane(plane, intersectionPoint);
 
-      if (head) head.lookAt(intersectionPoint.x, intersectionPoint.y, 10);
+      if (head) head.lookAt(intersectionPoint.x, intersectionPoint.y, 50);
     }
     window.addEventListener('mousemove', onMouseMove);
 

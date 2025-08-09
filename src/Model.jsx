@@ -12,10 +12,14 @@ export default function ThreeScene() {
   useEffect(() => {
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x212568);
+    scene.background = null;
 
     // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha:true });
+    
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap; // softer edges
+
     renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -41,9 +45,40 @@ export default function ThreeScene() {
     const ambientLight = new THREE.AmbientLight(0x35227a, 1);
     scene.add(ambientLight);
 
-    const keyLight = new THREE.DirectionalLight(0x35227a, 5);
-    keyLight.position.set(5, 0, 20);
-    scene.add(keyLight);
+
+    const keyLightSun = new THREE.HemisphereLight(0xB76E79, 0x35227a, 3);
+    keyLightSun.position.set(5, 5, 50);
+    scene.add(keyLightSun);
+
+    const lightRig = new THREE.Object3D();
+
+    const keyLightScreen = new THREE.SpotLight(0xDBE9F4, 3000, -3, Math.PI / 4, .5, 1.8);
+    keyLightScreen.position.set(0, 0, 2);
+    scene.add(keyLightScreen);
+
+    const directionaLightHelper = new THREE.DirectionalLightHelper(keyLightScreen, 5);
+    scene.add(directionaLightHelper);
+    
+    const target = new THREE.Object3D();
+    target.position.set(0, 0, 0);
+    scene.add(target);
+
+    keyLightScreen.target = target;
+
+    lightRig.add(keyLightScreen);
+    lightRig.add(keyLightScreen.target);
+
+    scene.add(lightRig);
+
+    lightRig.position.y -= 2;
+    lightRig.position.z += 19;
+
+    keyLightScreen.castShadow = true;
+    keyLightScreen.shadow.mapSize.width = 2048; // bigger = softer + smoother
+    keyLightScreen.shadow.mapSize.height = 2048;
+    keyLightScreen.shadow.radius = 4; // increase for blurrier edges
+    keyLightScreen.shadow.bias = -0.0001; // avoid shadow acne
+
 
     const keyLightNew = new THREE.DirectionalLight(0xffffff, 1);
     keyLightNew.position.set(5, 10, 5);
@@ -154,7 +189,7 @@ export default function ThreeScene() {
       raycaster.setFromCamera(mousePosition, camera);
       raycaster.ray.intersectPlane(plane, intersectionPoint);
 
-      if (head) head.lookAt(intersectionPoint.x, intersectionPoint.y, 50);
+      if (head) head.lookAt(intersectionPoint.x, intersectionPoint.y, 20);
     }
     window.addEventListener('mousemove', onMouseMove);
 

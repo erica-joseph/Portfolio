@@ -4,6 +4,14 @@ html, body {
   background: #222;
 }
 
+#gradient-background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: linear-gradient(to bottom, #1e3c72, #2a5298);
+  z-index: -1; /* behind the canvas */
+}
+
 .page {
   display: flex;
   justify-content: center;
@@ -27,6 +35,8 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(to bottom, #011e51, #9d607a,#ef5e16, #2a5298);
+
 
 }
 

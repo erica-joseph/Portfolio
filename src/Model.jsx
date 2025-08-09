@@ -56,8 +56,8 @@ export default function ThreeScene() {
     keyLightScreen.position.set(0, 0, 2);
     scene.add(keyLightScreen);
 
-    const directionaLightHelper = new THREE.DirectionalLightHelper(keyLightScreen, 5);
-    scene.add(directionaLightHelper);
+    // const directionaLightHelper = new THREE.DirectionalLightHelper(keyLightScreen, 5);
+    // scene.add(directionaLightHelper);
     
     const target = new THREE.Object3D();
     target.position.set(0, 0, 0);

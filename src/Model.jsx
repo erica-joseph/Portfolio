@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { SkeletonHelper } from 'three';
 
+
 import modelPath from './assets/My_Model/Me_012.glb';
 
 

@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { SkeletonHelper } from 'three';
 
-import modelPath from './assets/My_Model/Me_011.glb'
+import modelPath from './assets/My_Model/Me_012.glb';
 
 
 export default function ThreeScene() {
@@ -79,6 +79,8 @@ export default function ThreeScene() {
     keyLightScreen.shadow.radius = 4; // increase for blurrier edges
     keyLightScreen.shadow.bias = -0.0001; // avoid shadow acne
 
+    keyLightScreen.castShadow = true;
+
 
     const keyLightNew = new THREE.DirectionalLight(0xffffff, 1);
     keyLightNew.position.set(5, 10, 5);
@@ -113,7 +115,7 @@ export default function ThreeScene() {
         model = gltf.scene;
         scene.add(model);
         model.position.set(0, 0, 0);
-
+        console.log(gltf.animations);
         model.traverse((node) => {
           if (node.isLight) {
             node.visible = true;
@@ -130,14 +132,34 @@ export default function ThreeScene() {
             head = node;
             console.log('Head FOUND:', node);
           }
+          
+          if(node.isMesh && node.name !== 'Glasses'){
+            node.castShadow = true;    // casts shadows
+            node.receiveShadow = true; // can display shadows falling on it
+          }
         });
+
+        
+        const glassesGroup = gltf.scene.getObjectByName('Glasses');
+        if (glassesGroup) {
+          glassesGroup.traverse((child) => {
+            if (child.isMesh) {
+                child.castShadow = false;
+                child.receiveShadow = false;
+            }
+          }
+        )
+        };
+
 
          //SkeletonHelper (optional debugging)
          //const skeletonHelper = new SkeletonHelper(model);
          //scene.add(skeletonHelper);
 
         mixer = new THREE.AnimationMixer(model);
-        const desiredClip = gltf.animations[0];
+        const rng = Math.round(Math.random());
+        console.log("The random number chosen was: ", rng);
+        const desiredClip = gltf.animations[1];
         if (desiredClip) {
           const action = mixer.clipAction(desiredClip);
           action.play();
@@ -150,6 +172,8 @@ export default function ThreeScene() {
         console.error('An error occurred while loading the model:', error);
       }
     );
+
+    
 
     // Handle keyboard input
     function onKeyDown(event) {

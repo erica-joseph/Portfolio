@@ -273,7 +273,9 @@ export default function ThreeScene() {
     <div className = "loading_screen" style ={toSee}>
     <div className="loading_image">
     </div>
-
+    <div className="loading_text">
+    LOADING
+    </div>
     </div>
     </>
   );

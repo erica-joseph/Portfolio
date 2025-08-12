@@ -550,6 +550,9 @@ canvas {
 
 .loading_screen{
   background-color: rgb(0, 0, 0);
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  flex-direction: column;
   color: white;
   position: absolute;
   height: 100vh;
@@ -558,6 +561,7 @@ canvas {
   margin: auto;
   justify-content: center;
   align-items: center;
+  animation: text 1s infinite;
 }
 
 .loading_image{
@@ -576,6 +580,18 @@ canvas {
   0% {filter: drop-shadow(0 0 .5vw rgba(255, 255, 255, 1));}
   50% {filter: drop-shadow(0 0 0vw rgba(255, 255, 255, 1));}
   100% {filter: drop-shadow(0 0 .5vw rgba(255, 255, 255, 1));}
+  
+}
+
+.loading_text{
+  animation: text 1s infinite;
+}
+
+@keyframes text {
+
+  0% {text-shadow: 0 0 .5vw rgba(255, 255, 255, 1);}
+  50% {text-shadow: 0 0 .5vw rgba(255, 255, 255, 0)}
+  100% {text-shadow: 0 0 .5vw rgba(255, 255, 255, 1)}
   
 }
 

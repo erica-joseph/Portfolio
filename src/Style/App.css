@@ -203,6 +203,7 @@ html, body {
   display: flex;
   justify-content: center;
   border-left: solid rgba(255, 255, 255, 0.352) .1vw;
+  font-weight: bold;
 }
 
 .exit:hover{

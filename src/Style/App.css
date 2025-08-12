@@ -566,7 +566,7 @@ canvas {
   height: 20vw;
   width: 10vw;
   user-select: none;
-  animation: loading 10s infinite;
+  animation: loading 5s infinite;
 }
 
 @keyframes loading {

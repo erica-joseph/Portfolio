@@ -274,17 +274,17 @@ export function Projects() {
 export function Skills() {
 
   const skills = [
-    {img: "img.png", name: "C", details: "Intermediate"},
-    {img: "img.png", name: "C++", details: "Intermediate"},
-    {img: "img.png", name: "Java", details: "Intermediate"},
-    {img: "img.png", name: "Python", details: "Intermediate"},
-    {img: "img.png", name: "MIPS", details: "Intermediate"},
-    {img: "img.png", name: "Verilog", details: "Intermediate"},
-    {img: "img.png", name: "HTML", details: "Intermediate"},
-    {img: "img.png", name: "CSS", details: "Intermediate"},
-    {img: "img.png", name: "React", details: "Intermediate"},
-    {img: "img.png", name: "Agile", details: "Intermediate"},
-    {img: "img.png", name: "Scrum", details: "Intermediate"}
+    {img: "img.png", name: "C", details: "Competent"},
+    {img: "img.png", name: "C++", details: "Competent"},
+    {img: "img.png", name: "Java", details: "Competent"},
+    {img: "img.png", name: "Python", details: "Competent"},
+    {img: "img.png", name: "MIPS", details: "Basic"},
+    {img: "img.png", name: "Verilog", details: "Competent"},
+    {img: "img.png", name: "HTML", details: "Proficient"},
+    {img: "img.png", name: "CSS", details: "Proficient"},
+    {img: "img.png", name: "React", details: "Competent"},
+    {img: "img.png", name: "Agile", details: "Competent"},
+    {img: "img.png", name: "Scrum", details: "Competent"}
   ]
 
   return(

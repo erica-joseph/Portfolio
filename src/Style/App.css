@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   height: 100%;
   background: #222;
+  filter: saturate(130%) ;
 }
 
 #gradient-background {

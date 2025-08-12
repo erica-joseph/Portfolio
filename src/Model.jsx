@@ -1,16 +1,23 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { SkeletonHelper } from 'three';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
 
-import modelPath from './assets/My_Model/Me_012.glb';
+import modelPath from './assets/My_Model/Me_013.glb';
 
 
 export default function ThreeScene() {
   const containerRef = useRef();
+  const [doneLoad, isLoad] = useState(true);
+
+  const toSee = {
+   display: doneLoad ? 'flex' : 'none',
+  };
 
   useEffect(() => {
+
     // Scene setup
     const scene = new THREE.Scene();
     scene.background = null;
@@ -19,7 +26,7 @@ export default function ThreeScene() {
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha:true });
     
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap; // softer edges
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
     renderer.shadowMap.enabled = true;
@@ -75,10 +82,10 @@ export default function ThreeScene() {
     lightRig.position.z += 19;
 
     keyLightScreen.castShadow = true;
-    keyLightScreen.shadow.mapSize.width = 2048; // bigger = softer + smoother
+    keyLightScreen.shadow.mapSize.width = //smooth
     keyLightScreen.shadow.mapSize.height = 2048;
-    keyLightScreen.shadow.radius = 4; // increase for blurrier edges
-    keyLightScreen.shadow.bias = -0.0001; // avoid shadow acne
+    keyLightScreen.shadow.radius = 4; // edge blur
+    keyLightScreen.shadow.bias = -0.0001; 
 
     keyLightScreen.castShadow = true;
 
@@ -108,8 +115,13 @@ export default function ThreeScene() {
     let wallMesh = null;
     let head = null;
 
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('/Portfolio/draco/');
+
     // GLTF Loader
     const loader = new GLTFLoader();
+    loader.setDRACOLoader(dracoLoader);
+
     loader.load(
       modelPath,
       function (gltf) {
@@ -134,9 +146,11 @@ export default function ThreeScene() {
             console.log('Head FOUND:', node);
           }
           
+
+          //exclude the glasses
           if(node.isMesh && node.name !== 'Glasses'){
-            node.castShadow = true;    // casts shadows
-            node.receiveShadow = true; // can display shadows falling on it
+            node.castShadow = true;    
+            node.receiveShadow = true; 
           }
         });
 
@@ -152,11 +166,6 @@ export default function ThreeScene() {
         )
         };
 
-
-         //SkeletonHelper (optional debugging)
-         //const skeletonHelper = new SkeletonHelper(model);
-         //scene.add(skeletonHelper);
-
         mixer = new THREE.AnimationMixer(model);
         const rng = Math.round(Math.random());
         console.log("The random number chosen was: ", rng);
@@ -167,6 +176,8 @@ export default function ThreeScene() {
         } else {
           console.warn('No animation found!');
         }
+      
+        isLoad(false);
       },
       undefined,
       function (error) {
@@ -176,6 +187,7 @@ export default function ThreeScene() {
 
     
 
+
     // Handle keyboard input
     function onKeyDown(event) {
       const spinAmount = 0.05;
@@ -183,10 +195,10 @@ export default function ThreeScene() {
 
       switch (event.key) {
         case 'ArrowLeft':
-          wallMesh.rotation.z -= spinAmount;
+          wallMesh.rotation.y -= spinAmount;
           break;
         case 'ArrowRight':
-          wallMesh.rotation.z += spinAmount;
+          wallMesh.rotation.y += spinAmount;
           break;
         default:
           break;
@@ -214,7 +226,7 @@ export default function ThreeScene() {
       raycaster.setFromCamera(mousePosition, camera);
       raycaster.ray.intersectPlane(plane, intersectionPoint);
 
-      if (head) head.lookAt(intersectionPoint.x, intersectionPoint.y, 20);
+      if (head) head.lookAt(intersectionPoint.x, intersectionPoint.y, 15);
     }
     window.addEventListener('mousemove', onMouseMove);
 
@@ -251,9 +263,18 @@ export default function ThreeScene() {
   }, []);
 
   return (
+    <>
+
     <div className="threeMain"
       ref={containerRef}
       style={{ width: '100%', height: '100vh', overflow: 'hidden' }}
-    />
+    />    
+    
+    <div className = "loading_screen" style ={toSee}>
+    <div className="loading_image">
+    </div>
+
+    </div>
+    </>
   );
 }

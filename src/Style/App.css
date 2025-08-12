@@ -542,6 +542,41 @@ canvas {
   pointer-events: auto !important;
 }
 
+.three_contain_load{
+
+}
+
+.loading_screen{
+  background-color: rgb(0, 0, 0);
+  color: white;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 20;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading_image{
+  background-image: url('../assets/Logo_Personal_002.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20vw;
+  width: 10vw;
+  user-select: none;
+  animation: loading 10s infinite;
+}
+
+@keyframes loading {
+
+  0% {filter: drop-shadow(0 0 .5vw rgba(255, 255, 255, 1));}
+  50% {filter: drop-shadow(0 0 0vw rgba(255, 255, 255, 1));}
+  100% {filter: drop-shadow(0 0 .5vw rgba(255, 255, 255, 1));}
+  
+}
+
 /*Troubleshooting*/
 .buttons{
   display: none;
